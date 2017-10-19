@@ -166,8 +166,7 @@ def checkout():
     # For now, we'll just provide a warning. Completing this is beyond the
     # scope of this exercise.
 
-    flash("Sorry! Checkout will be implemented in a future version.")
-    return redirect("/melons")
+    return redirect("/cart")
 
 
 if __name__ == "__main__":
