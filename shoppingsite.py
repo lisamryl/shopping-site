@@ -80,6 +80,7 @@ def show_shopping_cart():
             melon.qty = session["cart"][melon_id]
             melon.total = float(melon.price) * float(melon.qty)
             running_total = running_total + melon.total
+            print melon
             cart.append(melon)
         return render_template("cart.html", cart=cart, total=running_total)
     else:
