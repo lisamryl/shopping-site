@@ -38,6 +38,7 @@ def list_melons():
     """Return page showing all the melons ubermelon has to offer"""
 
     melon_list = melons.get_all()
+    print session
     return render_template("all_melons.html",
                            melon_list=melon_list)
 
@@ -142,10 +143,13 @@ def process_login():
     #   message and redirect the user to the "/melons" route
     # - if they don't, flash a failure message and redirect back to "/login"
     # - do the same if a Customer with that email doesn't exist
+    print session
     username = request.form['email']
     password = request.form['password']
+    session["user"] = username
     if customers.customers.get(username):
         if password == customers.get_by_email(username).password:
+            flash("You have successfully logged in.")
             return redirect("/melons")
         else:
             flash("You entered the wrong password, please try to log in again")
